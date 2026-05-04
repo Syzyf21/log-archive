@@ -21,12 +21,12 @@ if [ -z "$log_source" ]; then
 elif [ -z "$time_to_log" ]; then
     date=`date +%Y-%m-%d_%H':'%M':'%S`
     cd $log_source
-    tar -czf "$archives_path/logs-$date.tar" *.log
+    tar -czf "$archives_path/logs-$date.tar.gz" *.log
 else
   while true; do
     date=`date +%Y-%m-%d_%H':'%M':'%S`
     cd $log_source
-    tar -czf "$archives_path/logs-$date.tar" *.log
+    tar -czf "$archives_path/logs-$date.tar.gz" *.log
     sleep $time_to_log
   done
 fi
