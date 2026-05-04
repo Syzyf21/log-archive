@@ -7,7 +7,7 @@ Simple CLI tool that helps you in archiving logs in a .tar.gz format with a time
 
 ## Overview
 
-You run the tool by using `./log-archive.sh <logs_directory> <time_in_seconds>` , 1st argument is required but 2nd is optional. 2nd argument makes it that the script will archive logs every given amount of seconds. 
+You run the tool by using `./log-archive.sh <logs_directory> <time_in_seconds>` , 1st argument is required but 2nd is optional. 2nd argument makes it that the script will archive logs every given amount of seconds. Archives are stored in ~/log-archive/archives
 
 ## How to install
 
