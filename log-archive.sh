@@ -2,7 +2,6 @@
 
 log_source=$1
 time_to_log=$2
-time_to_delete=$3
 log_archive_path=~/log-archive
 archives_path=~/log-archive/archives
 
@@ -17,16 +16,18 @@ if [ ! -d $archives_path ]; then
 fi
 
 #
-if [ -z "$1" ]; then
+if [ -z "$log_source" ]; then
   echo "Provide a path to a directory from which i should archive your logs"
+elif [ -z "$time_to_log" ]; then
+    date=`date +%Y-%m-%d_%H':'%M':'%S`
+    cd $log_source
+    tar -czf "$archives_path/logs-$date.tar" *.log
 else
-  if [ -z "$2" ]; then
-    cp $1/*.log $archives_path
-  else
-    while true; do
-      cp $1/*.log $archives_path
-      sleep $2s
-    done
-  fi
+  while true; do
+    date=`date +%Y-%m-%d_%H':'%M':'%S`
+    cd $log_source
+    tar -czf "$archives_path/logs-$date.tar" *.log
+    sleep $time_to_log
+  done
 fi
 
